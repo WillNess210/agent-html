@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "agent-html",
-      "source": ".",
+      "source": "./",
       "description": "Claude Code slash command that renders a conversation as a self-contained interactive HTML file."
     }
   ]
