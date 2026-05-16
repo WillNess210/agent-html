@@ -18,8 +18,8 @@ The slash command forks the current Claude Code context into a subagent whose on
 ### Claude Code plugin
 
 ```
-/plugin marketplace add willness/agent-html
-/plugin install agent-html
+/plugin marketplace add WillNess210/agent-html
+/plugin install agent-html@agent-html
 ```
 
 Invocation becomes `/agent-html:html` (plugins get namespaced).
@@ -27,7 +27,7 @@ Invocation becomes `/agent-html:html` (plugins get namespaced).
 ### skills.sh
 
 ```
-npx skills add willness/agent-html
+npx skills add WillNess210/agent-html
 ```
 
 Lands as `/html` in your skills directory.
@@ -35,7 +35,7 @@ Lands as `/html` in your skills directory.
 ### Direct clone
 
 ```
-git clone https://github.com/willness/agent-html.git
+git clone https://github.com/WillNess210/agent-html.git
 ln -s "$PWD/agent-html/skills/html" ~/.claude/skills/html
 ```
 

@@ -1,0 +1,14 @@
+{
+  "name": "agent-html",
+  "owner": {
+    "name": "WillNess210"
+  },
+  "description": "Single-plugin marketplace for agent-html.",
+  "plugins": [
+    {
+      "name": "agent-html",
+      "source": ".",
+      "description": "Claude Code slash command that renders a conversation as a self-contained interactive HTML file."
+    }
+  ]
+}
