@@ -11,7 +11,7 @@ Built around the thesis that [HTML is a more honest interchange format than Mark
 /html the auth flow             # focus the render on a specific topic
 ```
 
-The slash command forks the current Claude Code context into a subagent whose only job is to render, save, and open the HTML. The fork inherits the full conversation, so you don't need to repeat anything.
+The slash command instructs Claude to render the current conversation as a single self-contained HTML file, save it to a stable location, and open it in your default browser — in one turn, no follow-ups.
 
 ## Install
 
@@ -76,7 +76,7 @@ export CLAUDE_HTML_DIR='{{HOME}}/claude-viz/{{REPO_NAME}}'
 export CLAUDE_HTML_DIR='{{HOME}}/.claude/viz'
 ```
 
-## What the fork produces
+## What `/html` produces
 
 - One self-contained `.html` file. No CDNs, no external assets, no network fetches.
 - System fonts. Semantic HTML. A coherent palette.
@@ -88,12 +88,12 @@ Mobile responsive, dark mode, and print stylesheets are explicitly **not** part 
 ## Behavior
 
 - **One-shot.** Each `/html` invocation regenerates a fresh file. To refresh, re-run after editing the conversation.
-- **Optional argument** is a focus *hint*, not a filter — the fork still sees the whole conversation.
+- **Optional argument** is a focus *hint*, not a filter — the full conversation is still in scope.
 - **Opens automatically** via `open` (macOS) or `xdg-open` (Linux). Headless or unsupported platform → prints a `file://` URL for manual paste.
 
 ## Compatibility
 
-The skill relies on Claude Code's `context: fork` primitive, which forks the parent conversation into a subagent. This is a Claude Code–only feature. The `SKILL.md` is valid and parseable in other skills.sh-compatible agents (Cursor, Codex, Gemini CLI), but they don't have the fork primitive, so the skill won't behave the same way there.
+The `SKILL.md` follows the Agent Skills open spec and is valid in any skills.sh-compatible agent (Claude Code, Cursor, Codex, Gemini CLI, etc.). The browser-open step assumes a desktop environment with `open` (macOS) or `xdg-open` (Linux); on headless / unsupported platforms it falls back to printing a `file://` URL.
 
 ## Credits
 

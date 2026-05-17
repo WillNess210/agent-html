@@ -1,14 +1,13 @@
 ---
 name: html
 description: Render the current conversation, plan, idea, or argument as a single self-contained interactive HTML file and open it in the user's browser. Invoke with /html (optionally /html <focus hint>). Auto-invoke when the user asks to visualize as HTML, "make an HTML page from this", "render this as a webpage", "show this as an interactive page", or wants a richer visual artifact than markdown can express.
-context: fork
 argument-hint: [optional focus hint, e.g. "the auth flow"]
 allowed-tools: Bash, Write, Read
 ---
 
 # /html — render the conversation as interactive HTML
 
-You have inherited the full conversation context from the parent thread. Your single job: produce one self-contained HTML file that captures the current plan / idea / argument as a rich visual artifact, save it to disk, open it in the user's browser, and report the path.
+Your single job in this turn: produce one self-contained HTML file that captures the current plan / idea / argument from the conversation as a rich visual artifact, save it to disk, open it in the user's browser, and report the path. Don't ask follow-ups — go.
 
 ## Why HTML, not Markdown
 
@@ -21,7 +20,7 @@ Reference points:
 
 ## Argument
 
-`$ARGUMENTS`, if non-empty, is a **focus hint** — what the user wants emphasized. It does *not* filter the conversation; you still see everything. If empty, infer the most important artifact in the conversation and render that.
+`$ARGUMENTS`, if non-empty, is a **focus hint** — what the user wants emphasized. It does *not* filter the conversation; render against the full context. If empty, infer the most important artifact in the conversation and render that.
 
 ## Output: hard constraints
 
@@ -116,4 +115,4 @@ Nothing else. No summary of what's on the page. The user is already looking at i
 
 ## One-shot
 
-There is no iteration loop. If the user wants changes, they re-run `/html` after editing the conversation. Don't offer to "make adjustments" — that's the parent thread's job.
+There is no iteration loop. Render once, open, report. If the user wants changes, they re-run `/html`. Don't offer to "make adjustments" inside this invocation — return control to the user immediately.
