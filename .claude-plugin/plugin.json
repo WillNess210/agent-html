@@ -1,6 +1,6 @@
 {
   "name": "agent-html",
   "description": "Render the current conversation, plan, or argument as a self-contained interactive HTML file and open it in the browser.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": ["html", "visualization", "skill", "claude-code"]
 }
